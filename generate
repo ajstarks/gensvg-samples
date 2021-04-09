@@ -1,0 +1,18 @@
+#!/bin/sh
+cd cmd
+for i in $(cat filelist)
+do
+	cd $i
+	if test -a $i.png
+	then
+		if test $i.go -nt $i.png
+		then
+			echo $i
+			go run $i.go > $i.svg && inkscape -o $i.png  $i.svg 2>/dev/null
+		fi
+	else
+		go run $i.go > $i.svg && inkscape -o $i.png  $i.svg 2>/dev/null
+	fi
+	cd ..
+done
+

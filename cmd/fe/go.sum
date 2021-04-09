@@ -1,0 +1,4 @@
+github.com/ajstarks/gensvg v0.0.0-20210409154833-906fdb9f3874 h1:btr0W6fZqMoc63zUO7p2GATo95MAyci93hOE9o/EHPA=
+github.com/ajstarks/gensvg v0.0.0-20210409154833-906fdb9f3874/go.mod h1:PtU6ofchbU0VxGlg+klpebsi0DY7V9GrxtYeMJkWutM=
+github.com/ajstarks/svgo v0.0.0-20210406150507-75cfd577ce75 h1:tuK1xIp+jrEEF0l3xXab78w89ilYr0Am170KdSml2xc=
+github.com/ajstarks/svgo v0.0.0-20210406150507-75cfd577ce75/go.mod h1:K08gAheRH3/J6wwsYMMT4xOr94bZjxIelGM0+d/wbFw=

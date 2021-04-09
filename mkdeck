@@ -1,0 +1,21 @@
+#!/bin/sh
+page=0
+dir=cmd
+(cat begindeck.dsh
+for i in $(cat filelist)
+do
+	base=`basename $i .go`
+	page=`expr $page + 1`
+	cat <<!
+	slide
+		textfile "$dir/$i/$base.go"	cx cy cs "mono"
+		image    "$dir/$i/$base.png"	ix iy iw ih
+		etext    "$base.go"			tx ty ts
+		etext    "[$page]"			nx ny ns "sans" "gray"
+	eslide
+!
+done
+echo "edeck" ) | 
+decksh | 
+pdfdeck -stdout -pagesize 1200,900 -sans Go-Regular -mono Go-Mono - > gensvg-samples.pdf
+

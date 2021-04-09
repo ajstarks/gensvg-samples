@@ -1,0 +1,15 @@
+deck
+	canvas 1200 900
+	cx=2.5
+	cy=97
+	cs=1.2
+	ix=75
+	iy=68
+	iw=500
+	ih=500
+	tx=90
+	ty=2.5
+	nx=95
+	ny=ty
+	ts=2
+	ns=ts
