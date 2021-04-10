@@ -1,7 +1,44 @@
 #!/bin/sh
-page=0
+# make the deck for the gensvg examples
 dir=cmd
-(cat begindeck.dsh
+
+# make the TOC as a grid of images
+for i in $(cat filelist)
+do
+	echo "image \"$dir/$i/$i.png\" x y 72 72"
+ done > toc.dsh
+
+# make the image captions
+for i in $(cat filelist)
+do
+	echo "ctext \"$i\" x y 1.5"
+ done > captions.dsh
+
+# include the top matter: variables and TOC slide
+(echo '
+deck
+	canvas 1200 900
+	cx=2.5
+	cy=97
+	cs=1.2
+	ix=75
+	iy=68
+	iw=500
+	ih=500
+	tx=90
+	ty=2.5
+	nx=95
+	ny=ty
+	ts=2
+	ns=ts
+	slide
+		ctext "gensvg examples" 50 95 3
+		grid "toc.dsh" 10 85 10 15 90
+		grid "captions.dsh" 10 78 10 15 90
+	eslide
+'
+# one page per example
+page=0
 for i in $(cat filelist)
 do
 	base=`basename $i .go`
