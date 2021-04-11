@@ -5,7 +5,8 @@ dir=cmd
 # make the TOC as a grid of images
 for i in $(cat filelist)
 do
-	echo "cimage \"$dir/$i/$i.png\" \"$i\" x y 72 72 100 \"\" 1.5"
+	link="https://github.com/ajstarks/gensvg-samples/tree/master/cmd/$i"
+	echo "cimage \"$dir/$i/$i.png\" \"$i\" x y 500 500 14 \"$link\" 1.5"
  done > toc.dsh
 
 # include the top matter: variables and TOC slide
