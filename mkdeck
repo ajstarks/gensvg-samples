@@ -5,14 +5,8 @@ dir=cmd
 # make the TOC as a grid of images
 for i in $(cat filelist)
 do
-	echo "image \"$dir/$i/$i.png\" x y 72 72"
+	echo "cimage \"$dir/$i/$i.png\" \"$i\" x y 72 72 100 \"\" 1.5"
  done > toc.dsh
-
-# make the image captions
-for i in $(cat filelist)
-do
-	echo "ctext \"$i\" x y 1.5"
- done > captions.dsh
 
 # include the top matter: variables and TOC slide
 (echo '
@@ -34,7 +28,6 @@ deck
 	slide
 		ctext "gensvg examples" 50 95 3
 		grid "toc.dsh" 10 85 10 15 90
-		grid "captions.dsh" 10 78 10 15 90
 	eslide
 '
 # one page per example
